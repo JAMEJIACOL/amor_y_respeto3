@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Grupo de Conexión | El Lugar de Su Presencia - Amor y Respeto (Sección 3)</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            navy: '#0F294A',
+                            dark: '#1E293B',
+                            primary: '#1D4ED8',
+                            earth: '#C2410C',
+                            clay: '#9A3412',
+                            sand: '#F4F1EA',
+                            gold: '#D97706',
+                            softBg: '#F4F1EA'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: #F4F1EA;
+            color: #1E293B;
+            line-height: 1.5;
+            -webkit-tap-highlight-color: transparent;
+            padding-bottom: 95px;
+        }
+        header {
+            background: linear-gradient(135deg, #0F294A 0%, #1E293B 50%, #7C2D12 100%);
+            color: #ffffff;
+            padding: 22px 16px;
+            text-align: center;
+            border-bottom: 4px solid #C2410C;
+            position: sticky;
+            top: 0;
+            z-index: 30;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        header h1 {
+            font-size: 1.35rem;
+            font-weight: 800;
+            margin: 6px 0 2px 0;
+            color: #ffffff;
+            line-height: 1.25;
+        }
+        header p {
+            font-size: 0.8rem;
+            color: #FED7AA;
+            font-weight: 300;
+        }
+        .badge {
+            display: inline-block;
+            background-color: rgba(217, 119, 6, 0.25);
+            color: #FDE68A;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 9999px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border: 1px solid rgba(217, 119, 6, 0.4);
+        }
+        main {
+            max-width: 720px;
+            margin: 16px auto;
+            padding: 0 12px;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 16px;
+            border: 1px solid #E2E8F0;
+            padding: 16px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+        }
+        .card h2, .card h3 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #0F294A;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .info-box {
+            background: linear-gradient(90deg, #EFF6FF 0%, #FFF7ED 100%);
+            border-left: 4px solid #C2410C;
+            padding: 12px;
+            border-radius: 0 12px 12px 0;
+            font-size: 0.8rem;
+            color: #1E293B;
+            margin-top: 10px;
+        }
+        label {
+            display: block;
+            font-size: 0.825rem;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 4px;
+            line-height: 1.35;
+        }
+        .context-text {
+            font-size: 0.78rem;
+            color: #475569;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: 10px;
+            border: 1px solid #CBD5E1;
+            font-size: 16px !important; /* Previene auto-zoom molesto en smartphones */
+            background-color: #FAFAFA;
+            margin-top: 4px;
+            margin-bottom: 8px;
+            font-family: inherit;
+        }
+        input[type="text"]:focus, textarea:focus {
+            outline: none;
+            border-color: #C2410C;
+            background-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(194, 65, 12, 0.15);
+        }
+        .radio-tile-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .radio-tile {
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            padding: 12px;
+            text-align: center;
+            cursor: pointer;
+            background-color: #FAFAFA;
+            font-size: 0.825rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            min-height: 48px;
+        }
+        .radio-tile input {
+            accent-color: #C2410C;
+        }
+        .checkbox-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #E2E8F0;
+            background-color: #FAFAFA;
+            margin-bottom: 6px;
+            font-size: 0.78rem;
+        }
+        .checkbox-item input {
+            margin-top: 3px;
+            width: 18px;
+            height: 18px;
+            accent-color: #C2410C;
+        }
+        .btn-whatsapp {
+            width: 100%;
+            background-color: #059669;
+            color: #ffffff;
+            font-weight: 700;
+            padding: 14px 16px;
+            border-radius: 12px;
+            border: none;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+        }
+        .btn-whatsapp:active {
+            transform: scale(0.98);
+            background-color: #047857;
+        }
+        .sticky-bottom-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(15, 23, 42, 0.96);
+            backdrop-filter: blur(8px);
+            padding: 10px 14px;
+            border-top: 1px solid #334155;
+            z-index: 50;
+        }
+        #toast {
+            position: fixed;
+            bottom: 80px;
+            left: 16px;
+            right: 16px;
+            background-color: #0F172A;
+            color: #ffffff;
+            padding: 12px 16px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            border: 1px solid #334155;
+            display: none;
+            z-index: 100;
+            align-items: center;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="badge">
+            <i class="fa-solid fa-users"></i> Grupo de Conexión
+        </div>
+        <h1>Taller de Matrimonios: "Amor y Respeto"</h1>
+        <p>Iglesia El Lugar de Su Presencia &bull; Red de Parejas con Hijos Adultos</p>
+        <div style="margin-top: 8px; font-size: 0.725rem; color: #FDE68A; opacity: 0.9;">
+            <span><i class="fa-regular fa-bookmark"></i> Sección Tres: Cap. 3 y 4</span> &bull; 
+            <span><i class="fa-regular fa-calendar"></i> 15 - 22 de Agosto</span> &bull;
+            <span><i class="fa-solid fa-heart text-amber-400"></i> "Por qué ella no Respeta: por qué él no Ama"</span>
+        </div>
+    </header>
+
+    <main>
+
+        <div class="card">
+            <h2>
+                <span><i class="fa-solid fa-book-open" style="color: #C2410C;"></i> Instrucciones de la SECCIÓN TRES</span>
+            </h2>
+            <p class="context-text">
+                <strong>Periodo:</strong> Del 15 de Agosto al 22 de Agosto.
+            </p>
+            <p class="context-text">
+                En estos DOS capítulos de <strong>Amor</strong> y <strong>Respeto</strong> que estudiaremos en esta Sesión Tres, ustedes profundizarán un poquito más en por qué las <strong>Esposas</strong> encuentran difícil <strong>Respetar</strong> y por qué los <strong>Esposos</strong> a su vez no <strong>Aman</strong>.
+            </p>
+            <div class="info-box">
+                <p style="font-weight: 700; color: #0F294A;">💡 Objetivo Principal:</p>
+                <p>Comprender las vulnerabilidades mutuas, superar el temor al desprecio y aplicar la Regla de Oro del <strong>Amor</strong> y <strong>Respeto</strong> en el hogar.</p>
+            </div>
+        </div>
+
+        <form id="evaluationForm" onsubmit="event.preventDefault();">
+
+            <!-- DATOS DE REGISTRO -->
+            <div class="card">
+                <h3>
+                    <span>Datos de Registro</span>
+                    <span style="font-size: 0.7rem; color: #C2410C;">* Obligatorio</span>
+                </h3>
+
+                <div style="margin-bottom: 12px;">
+                    <label>Usted es: *</label>
+                    <div class="radio-tile-group">
+                        <label class="radio-tile">
+                            <input type="radio" name="rol" value="Esposo" required> Esposo (Azul)
+                        </label>
+                        <label class="radio-tile">
+                            <input type="radio" name="rol" value="Esposa" required> Esposa (Rosa)
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="nombre">Tu Nombre Completo *</label>
+                    <input type="text" id="nombre" name="nombre" required placeholder="Ingresa tu nombre y apellido...">
+                </div>
+
+                <div>
+                    <label for="conyuge">Nombre de tu Cónyuge *</label>
+                    <input type="text" id="conyuge" name="conyuge" required placeholder="Nombre de tu cónyuge...">
+                </div>
+            </div>
+
+            <!-- CAPÍTULO 3 -->
+            <div class="card">
+                <h3>
+                    <span>Capítulo 3: “Por qué ella no Respeta: por qué él no Ama”</span>
+                </h3>
+                <p class="context-text" style="font-style: italic; color: #C2410C;">
+                    PREGUNTA PARA RESPONDER CADA UNO: Al Escuchar la carta de audiolibro y analice cómo se sentirán ustedes los cónyuges si les dijeran esto:
+                </p>
+
+                <!-- C3 - Pregunta 1 -->
+                <div style="margin-bottom: 16px;">
+                    <label>1. ¿Qué estaría queriendo decir su Esposa de él y su matrimonio? ¿Qué le pasa a un hombre al oír: “Tú no eres el hombre que yo pensé que eras”?</label>
+                    <textarea name="c3_q1" rows="2" placeholder="Escriba su respuesta..."></textarea>
+                </div>
+
+                <!-- C3 - Pregunta 2 -->
+                <div style="margin-bottom: 16px;">
+                    <label>2. Luego para añadir un tono “justo y equilibrado” la discusión continúa. ¿Qué estaría queriendo decir el Esposo enojado, al enviar su propio mensaje? ¿Qué le pasa a una mujer al oír: “Tú eres la culpable por los problemas de ambos”?</label>
+                    <textarea name="c3_q2" rows="2" placeholder="Escriba su respuesta..."></textarea>
+                </div>
+
+                <!-- C3 - Pregunta 3 -->
+                <div style="margin-bottom: 16px;">
+                    <label>3. Para las mujeres, el Respeto incondicional suena como un “oxímoron” (un término creado combinando dos palabras que parecen ser incongruentes o contradictorias). ¿Por qué piensa usted mujer que se siente así? Elija entre las siguientes ideas y escriba la suya propia:</label>
+                    
+                    <div class="checkbox-item">
+                        <input type="checkbox" name="c3_q3_items" value="a. Ella piensa que el Respeto es algo que un Esposo tiene que ganar.">
+                        <span>a. Ella piensa que el Respeto es algo que un Esposo tiene que ganar.</span>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" name="c3_q3_items" value="b. Ella piensa que los Esposos tratan con tanto desamor que no merecen Respeto.">
+                        <span>b. Ella piensa que los Esposos tratan con tanto desamor que no merecen Respeto.</span>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" name="c3_q3_items" value="c. Ellas piensan que dar Respeto incondicional a un Esposo es darle permiso para que haga todo lo que quiera.">
+                        <span>c. Ellas piensan que dar Respeto incondicional a un Esposo es darle permiso para que haga todo lo que quiera.</span>
+                    </div>
+                    
+                    <p class="context-text" style="margin-top: 6px; font-weight: 600;">d. Yo pienso:</p>
+                    <textarea name="c3_q3_d" rows="2" placeholder="Escriba su propia idea..."></textarea>
+                </div>
+
+                <!-- C3 - Pregunta 4 -->
+                <div style="margin-bottom: 16px;">
+                    <label>4. ¿Cuál es la diferencia entre mostrar Respeto y sentir Respeto? ¿Está bien que una Esposa muestre Respeto, aunque no lo sienta?</label>
+                    <textarea name="c3_q4" rows="2" placeholder="Escriba su respuesta..."></textarea>
+                </div>
+
+                <!-- C3 - Pregunta 5 -->
+                <div style="margin-bottom: 16px;">
+                    <label>5. ¿Qué cosas positivas podrían hacer si cada uno se pone los anteojos y audífonos del otro e hicieran un leve ajuste?</label>
+                    <textarea name="c3_q5" rows="2" placeholder="Escriba su respuesta..."></textarea>
+                </div>
+
+                <!-- C3 - Pregunta 6 -->
+                <div style="margin-bottom: 16px;">
+                    <label>6. Las mujeres siempre queremos aprender “Cómo Amar a su Esposo”, lo que no logramos comprender es que la forma en que una Esposa Ama plenamente a su Esposo es Respetándolo de maneras que son significativas para él. ¿Qué cree usted mujer que podría implicar esto? ¿Cómo podría usted mujer Respetar a su Esposo de maneras significativas?</label>
+                    <textarea name="c3_q6" rows="2" placeholder="Escriba su respuesta..."></textarea>
+                </div>
+
+                <!-- C3 - Pregunta 7 -->
+                <div style="margin-bottom: 16px;">
+                    <label>7. Cuando una Esposa intenta mostrar esa clase de Respeto. ¿Qué puede hacer un Esposo en respuesta para mostrar su agradecimiento? Hombre ponga por escrito su respuesta:</label>
+                    <textarea name="c3_q7" rows="2" placeholder="Respuesta del hombre..."></textarea>
+                </div>
+
+                <!-- C3 - Pregunta 8 -->
+                <div style="margin-bottom: 16px;">
+                    <label>8. “El Respeto es el valor más arraigado en el hombre”. El resultado de un estudio: el 74% de los hombres dijo que preferían quedarse solos y sin Amor en el mundo en vez de sentirse inadecuados y no Respetados.</label>
+                    <p class="context-text"><strong>Esposo:</strong> ¿Habría estado entre ese 74%? ¿Por qué?</p>
+                    <textarea name="c3_q8_esposo" rows="2" placeholder="Respuesta del Esposo..."></textarea>
+                    
+                    <p class="context-text"><strong>Esposa:</strong> ¿Le sorprenden los resultados de esta encuesta y la respuesta de su Esposo? ¿Por qué?</p>
+                    <textarea name="c3_q8_esposa" rows="2" placeholder="Respuesta de la Esposa..."></textarea>
+                </div>
+
+                <!-- C3 - Pregunta 9 -->
+                <div style="margin-bottom: 16px;">
+                    <label>9. Acerca de la Analogía: “Para los hombres, el Amor es como la comida (importante) y el Respeto como el agua (más importante)”. ¿Qué está sugiriendo esto para su matrimonio?</label>
+                    <textarea name="c3_q9" rows="2" placeholder="Escriba su respuesta..."></textarea>
+                </div>
+
+                <!-- C3 - Pregunta 10 -->
+                <div>
+                    <label>10. “Cuando el Esposo la honra como primera en importancia y la Esposa lo Respeta como el primero entre todas las personas, su matrimonio funciona”. ¿Están dispuestos a hacer de esto un objetivo principal de su matrimonio? Cada uno responda:</label>
+                    <textarea name="c3_q10" rows="2" placeholder="Respuesta de ambos..."></textarea>
+                </div>
+            </div>
+
+            <!-- CAPÍTULO 4 -->
+            <div class="card">
+                <h3>
+                    <span>Capítulo 4: “Lo que el hombre más teme puede hacer que el Ciclo Alienante siga girando”</span>
+                </h3>
+                <div style="background-color: #FEF3C7; padding: 10px; border-radius: 10px; border: 1px solid #FCD34D; margin-bottom: 12px; font-size: 0.75rem; color: #78350F;">
+                    Un factor para mantener el Ciclo Alienante: el temor masculino a la crítica, y especialmente al desprecio. Los hombres pueden parecer poderosos e inmunes a las palabras de su <strong>Esposa</strong>, pero bajo la superficie son muy vulnerables. Los hombres responden al llamado a la guerra, a proteger su hogar y familia. Sin embargo, los hombres de ninguna manera manejan bien los conflictos con sus <strong>Esposas</strong> cuando no se sienten <strong>Respetados</strong>.
+                </div>
+                <p class="context-text" style="font-style: italic; color: #C2410C;">
+                    PREGUNTA PARA RESPONDER CADA UNO:
+                </p>
+
+                <!-- C4 - Pregunta 1 -->
+                <div style="margin-bottom: 16px;">
+                    <label>1. “En el fondo, los hombres saben que sus Esposas los Aman, pero no están muy seguros de que los Respeten”. ¿Los hombres serán demasiado susceptibles o quizás arrogantes al preocuparse tanto por ser Respetados? Escriba francamente lo que piensa cada uno:</label>
+                    <textarea name="c4_q1" rows="2" placeholder="Escriba francamente su pensamiento..."></textarea>
+                </div>
+
+                <!-- C4 - Pregunta 2 -->
+                <div style="margin-bottom: 16px;">
+                    <label>2. “Código de Honor”; desde la infancia los hombres aprenden que hay ciertas cosas que los hombres no se dicen el uno al otro. Una mujer que le habla a su Esposo en el hogar de una manera en que un hombre nunca lo haría: “Él no puede creer que ella, su Esposa, pueda llegar a ser tan agresiva, tan irrespetuosa”.</label>
+                    
+                    <p class="context-text"><strong>Esposa:</strong> ¿Usted cree que siempre le habla a su Esposo de una manera “agresiva”? Explique:</p>
+                    <textarea name="c4_q2_agresiva" rows="2" placeholder="Explicación de la Esposa..."></textarea>
+
+                    <p class="context-text">¿Es usted una persona crítica u obstruccionista?</p>
+                    <textarea name="c4_q2_critica" rows="2" placeholder="Respuesta..."></textarea>
+
+                    <p class="context-text">¿Quién es el crítico y quién el obstruccionista en su matrimonio?</p>
+                    <textarea name="c4_q2_roles" rows="2" placeholder="Respuesta..."></textarea>
+
+                    <p class="context-text">¿Por qué los hombres (como regla) evaden a sus Esposas?</p>
+                    <textarea name="c4_q2_evaden" rows="2" placeholder="Respuesta..."></textarea>
+
+                    <div style="background-color: #FAFAFA; padding: 8px; border-radius: 8px; border: 1px solid #E2E8F0; font-size: 0.725rem; color: #475569; margin-top: 4px;">
+                        *Asegúrense de que ambos definen obstruccionismo de la misma forma. Es rehusar hablar, punto.*
+                    </div>
+                </div>
+
+                <!-- C4 - Pregunta 3 -->
+                <div style="margin-bottom: 16px;">
+                    <label>3. Analicemos “cómo resuelven las mujeres los conflictos entre ellas” (en llanto, compartiendo, abrazos y hasta carcajadas). Marque las ideas, y añada sus propios pensamientos:</label>
+                    
+                    <div class="checkbox-item">
+                        <input type="checkbox" name="c4_q3_items" value="a. Los Esposos son demasiado orgullosos para admitir que están equivocados.">
+                        <span>a. Los Esposos son demasiado orgullosos para admitir que están equivocados.</span>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" name="c4_q3_items" value="b. Los Esposos no ven la intención básica de reconciliación de la Esposa.">
+                        <span>b. Los Esposos no ven la intención básica de reconciliación de la Esposa.</span>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" name="c4_q3_items" value="c. Los Esposos se ponen poco comunicativos, porque sienten la crítica continua como menosprecio.">
+                        <span>c. Los Esposos se ponen poco comunicativos, porque sienten la crítica continua como menosprecio.</span>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" name="c4_q3_items" value="d. Las Esposas son más críticas y sentenciosas con sus Esposos que con sus amigas.">
+                        <span>d. Las Esposas son más críticas y sentenciosas con sus Esposos que con sus amigas.</span>
+                    </div>
+
+                    <p class="context-text" style="margin-top: 6px; font-weight: 600;">e. Yo pienso que:</p>
+                    <textarea name="c4_q3_e" rows="2" placeholder="Sus propios pensamientos..."></textarea>
+                </div>
+
+                <!-- C4 - Pregunta 4 -->
+                <div style="margin-bottom: 16px;">
+                    <label>4. Esta siguiente pregunta es una verdadera oportunidad de trabajar juntos positivamente para comprender cómo se aplican a su matrimonio los principios de Amor y Respeto:</label>
+                    
+                    <p class="context-text">a. “Sin <input type="text" name="c4_q4_a1" placeholder="palabra..." style="width: 120px; display: inline-block; margin: 0 4px;"> ella reacciona sin <input type="text" name="c4_q4_a2" placeholder="palabra..." style="width: 120px; display: inline-block; margin: 0 4px;">”</p>
+                    <p class="context-text">Y</p>
+                    <p class="context-text">b. “Sin <input type="text" name="c4_q4_b1" placeholder="palabra..." style="width: 120px; display: inline-block; margin: 0 4px;"> él reacciona sin <input type="text" name="c4_q4_b2" placeholder="palabra..." style="width: 120px; display: inline-block; margin: 0 4px;">”</p>
+                </div>
+
+                <!-- C4 - Pregunta 5 -->
+                <div style="margin-bottom: 16px;">
+                    <label>5. “La autoimagen de una Esposa puede depender de la aprobación de su Esposo” Y “El regalo de una Esposa puede iniciar el Ciclo Alienante”.</label>
+                    <p class="context-text"><strong>Esposa:</strong> ¿Por qué sueles cometer el ingenuo error de regañar (como mamás) a sus Esposos?</p>
+                    <textarea name="c4_q5_esposa" rows="2" placeholder="Respuesta de la Esposa..."></textarea>
+
+                    <p class="context-text">¿Cómo podría la necesidad masculina de Respeto incondicional, causar que el Esposo no interprete ciertos comentarios de su Esposa como regaño?</p>
+                    <textarea name="c4_q5_esposo" rows="2" placeholder="Respuesta..."></textarea>
+                </div>
+
+                <!-- C4 - Pregunta 6 -->
+                <div style="margin-bottom: 16px;">
+                    <label>6. Para evitar parecer una regañona, o herir su corazón. ¿Cuál de las siguientes preguntas es la mejor que una Esposa o un Esposo se debe formular mientras habla o interactúa con su Esposo(a)?</label>
+
+                    <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 6px; font-size: 0.78rem;">
+                        <label><input type="radio" name="c4_q6" value="a. Lo que estoy por decir o hacer. ¿Le permitirá saber que somos iguales y que no puede tratarme como a un 'inferior'?"> a. Lo que estoy por decir o hacer. ¿Le permitirá saber que somos iguales y que no puede tratarme como a un “inferior”?</label>
+                        <label><input type="radio" name="c4_q6" value="b. Lo que estoy por decir o hacer. ¿Le dará una impresión cariñosa o de desamor?"> b. Lo que estoy por decir o hacer. ¿Le dará una impresión cariñosa o de desamor?</label>
+                        <label><input type="radio" name="c4_q6" value="c. Lo que estoy a punto de decir o hacer. ¿Le dará una impresión respetuosa o irrespetuosa?"> c. Lo que estoy a punto de decir o hacer. ¿Le dará una impresión respetuosa o irrespetuosa?</label>
+                    </div>
+                </div>
+
+                <!-- C4 - Pregunta 7 -->
+                <div style="margin-bottom: 16px;">
+                    <label>7. ¿Quieres que te diga que te Amo o que te Respeto?</label>
+                    <p class="context-text">Marcar las siguientes respuestas con las que se sienten identificados:</p>
+
+                    <div class="checkbox-item">
+                        <input type="checkbox" name="c4_q7_items" value="La razón por la cual no soy cariñoso es porque tú eres muy Respetuosa.">
+                        <span>La razón por la cual no soy cariñoso es porque tú eres muy Respetuosa.</span>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" name="c4_q7_items" value="Estoy seguro de que me Amas, pero no siempre tengo la certeza de que me Respetas.">
+                        <span>Estoy seguro de que me Amas, pero no siempre tengo la certeza de que me Respetas.</span>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" name="c4_q7_items" value="Sé que no tienes la intención de ser Irrespetuosa, pero a veces das la impresión de serlo. En esos momentos, sé que igualmente debería Amar te, pero no sé cómo hacerlo, y me refugio en las evasivas.">
+                        <span>Sé que no tienes la intención de ser Irrespetuosa, pero a veces das la impresión de serlo. En esos momentos, sé que igualmente debería Amar te, pero no sé cómo hacerlo, y me refugio en las evasivas.</span>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" name="c4_q7_items" value="Si Sólo satisficieras mi necesidad de Respeto, este matrimonio sería fenomenal.">
+                        <span>Si Sólo satisficieras mi necesidad de Respeto, este matrimonio sería fenomenal.</span>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" name="c4_q7_items" value="No me importa si me amas, pero respétame.">
+                        <span>No me importa si me amas, pero respétame.</span>
+                    </div>
+                </div>
+
+                <!-- C4 - Pregunta 8 -->
+                <div style="margin-bottom: 16px;">
+                    <label>8. Sobre “la carta de una Esposa que cuenta que su Esposo se enredó en una aventura”.</label>
+                    <p class="context-text">¿Cuáles fueron las razones por las cuales se enredó el Esposo?</p>
+                    <textarea name="c4_q8_razones" rows="2" placeholder="Escriba las razones..."></textarea>
+
+                    <p class="context-text">¿Qué hay de malo en ver a tu Esposo como apuesto, ingenioso e inteligente?</p>
+                    <textarea name="c4_q8_malo" rows="2" placeholder="Respuesta..."></textarea>
+                    
+                    <p class="context-text" style="font-style: italic;">Obviamente esto puede ser exagerado, pero aquí hay sugerencias sobre cómo una Esposa puede Respetar a su Esposo.</p>
+                </div>
+
+                <!-- C4 - Pregunta 9 -->
+                <div style="margin-bottom: 16px;">
+                    <label>9. El Esposo sabio presta atención a la vulnerabilidad de su Esposa y nunca la ignora ni la minimiza. Muchas Esposas han sido arrastradas a una aventura porque se sentían solas y sin Amor. La mejor manera de prevenir en el matrimonio es el Amor y Respeto.</label>
+                    <textarea name="c4_q9" rows="2" placeholder="Reflexión sobre prevención y cuidado mutuo..."></textarea>
+                </div>
+
+                <!-- CONCLUSIÓN -->
+                <div style="background-color: #FEF3C7; padding: 12px; border-radius: 12px; border: 1px solid #FCD34D;">
+                    <label style="color: #78350F; font-weight: 700;">Conclusión: “La Regla de Oro del Amor y Respeto”</label>
+                    <p style="font-size: 0.78rem; color: #92400E; font-weight: 600; margin-top: 4px;">
+                        “La Esposa debería Respetar a su Esposo como ella quiere ser Amada; el Esposo debería Amar a su Esposa como él Quiere ser Respetado.”
+                    </p>
+                    <textarea name="c4_conclusion" rows="2" placeholder="Su compromiso final sobre esta Regla de Oro..." style="margin-top: 6px;"></textarea>
+                </div>
+            </div>
+
+            <!-- MOMENTO DE ORACIÓN -->
+            <div class="card" style="background-color: #FFF7ED; border-color: #FFEDD5;">
+                <h3 style="color: #9A3412;">
+                    <span><i class="fa-solid fa-mug-hot"></i> Momento de Conversación y Oración</span>
+                </h3>
+                <p style="font-size: 0.78rem; color: #7C2D12; margin-bottom: 8px;">
+                    Compartan un café para conversar sobre las respuestas de los Capítulos 3 y 4.
+                </p>
+                <p style="font-size: 0.78rem; color: #7C2D12;">
+                    Oren juntos reconociendo sus vulnerabilidades mutuas. Pidan sabiduría al Señor para que la <strong>Esposa</strong> exprese <strong>Respeto</strong> significativo y el <strong>Esposo</strong> exprese <strong>Amor</strong> incondicional, rompiendo cualquier intento del enemigo por alimentar el Ciclo Alienante.
+                </p>
+            </div>
+
+            <!-- BOTONES Y ACCIONES -->
+            <div class="card" style="background-color: #0F172A; color: #ffffff; border-color: #334155;">
+                <h3 style="color: #34D399; border-bottom-color: #1E293B;">
+                    <span><i class="fa-brands fa-whatsapp"></i> Envío para WhatsApp</span>
+                </h3>
+                <p style="font-size: 0.78rem; color: #CBD5E1; margin-bottom: 12px;">
+                    Al terminar, presiona el botón para copiar tus respuestas con formato especial y pégalas en el chat de tu Grupo de Cuatro.
+                </p>
+
+                <button type="button" class="btn-whatsapp" onclick="copyForWhatsApp()">
+                    <i class="fa-brands fa-whatsapp" style="font-size: 1.4rem;"></i> Copiar Respuestas para WhatsApp
+                </button>
+                
+                <div style="display: flex; gap: 8px; margin-top: 10px;">
+                    <button type="button" onclick="exportToCSV()" style="flex: 2; background: #1E293B; color: #FBBF24; border: 1px solid #475569; padding: 8px; border-radius: 8px; font-size: 0.75rem; font-weight: 600;">
+                        <i class="fa-solid fa-file-excel"></i> Descargar Excel CSV
+                    </button>
+                    <button type="button" onclick="resetForm()" style="flex: 1; background: #1E293B; color: #94A3B8; border: 1px solid #475569; padding: 8px; border-radius: 8px; font-size: 0.75rem; font-weight: 600;">
+                        <i class="fa-solid fa-rotate-left"></i> Limpiar
+                    </button>
+                </div>
+            </div>
+
+        </form>
+
+    </main>
+
+    <!-- Barra flotante móvil -->
+    <div class="sticky-bottom-bar">
+        <button type="button" class="btn-whatsapp" onclick="copyForWhatsApp()">
+            <i class="fa-brands fa-whatsapp" style="font-size: 1.2rem;"></i>
+            <span>Copiar para WhatsApp</span>
+        </button>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast">
+        <i id="toastIcon" class="fa-solid fa-circle-check" style="color: #34D399; font-size: 1.2rem;"></i>
+        <span id="toastMsg">Mensaje...</span>
+    </div>
+
+    <script>
+        function getFormData() {
+            const form = document.getElementById('evaluationForm');
+            const formData = new FormData(form);
+
+            const c3q3Checked = [];
+            document.querySelectorAll('input[name="c3_q3_items"]:checked').forEach(cb => c3q3Checked.push(cb.value));
+
+            const c4q3Checked = [];
+            document.querySelectorAll('input[name="c4_q3_items"]:checked').forEach(cb => c4q3Checked.push(cb.value));
+
+            const c4q7Checked = [];
+            document.querySelectorAll('input[name="c4_q7_items"]:checked').forEach(cb => c4q7Checked.push(cb.value));
+
+            return {
+                fecha: new Date().toLocaleString('es-CO'),
+                rol: formData.get('rol') || '',
+                nombre: formData.get('nombre') || '',
+                conyuge: formData.get('conyuge') || '',
+                
+                // Capítulo 3
+                c3_q1: formData.get('c3_q1') || '',
+                c3_q2: formData.get('c3_q2') || '',
+                c3_q3_items: c3q3Checked.join(', '),
+                c3_q3_d: formData.get('c3_q3_d') || '',
+                c3_q4: formData.get('c3_q4') || '',
+                c3_q5: formData.get('c3_q5') || '',
+                c3_q6: formData.get('c3_q6') || '',
+                c3_q7: formData.get('c3_q7') || '',
+                c3_q8_esposo: formData.get('c3_q8_esposo') || '',
+                c3_q8_esposa: formData.get('c3_q8_esposa') || '',
+                c3_q9: formData.get('c3_q9') || '',
+                c3_q10: formData.get('c3_q10') || '',
+
+                // Capítulo 4
+                c4_q1: formData.get('c4_q1') || '',
+                c4_q2_agresiva: formData.get('c4_q2_agresiva') || '',
+                c4_q2_critica: formData.get('c4_q2_critica') || '',
+                c4_q2_roles: formData.get('c4_q2_roles') || '',
+                c4_q2_evaden: formData.get('c4_q2_evaden') || '',
+                c4_q3_items: c4q3Checked.join(', '),
+                c4_q3_e: formData.get('c4_q3_e') || '',
+                c4_q4: `Sin ${formData.get('c4_q4_a1') || '___'} ella reacciona sin ${formData.get('c4_q4_a2') || '___'} Y Sin ${formData.get('c4_q4_b1') || '___'} él reacciona sin ${formData.get('c4_q4_b2') || '___'}`,
+                c4_q5_esposa: formData.get('c4_q5_esposa') || '',
+                c4_q5_esposo: formData.get('c4_q5_esposo') || '',
+                c4_q6: formData.get('c4_q6') || '',
+                c4_q7_items: c4q7Checked.join(', '),
+                c4_q8_razones: formData.get('c4_q8_razones') || '',
+                c4_q8_malo: formData.get('c4_q8_malo') || '',
+                c4_q9: formData.get('c4_q9') || '',
+                c4_conclusion: formData.get('c4_conclusion') || ''
+            };
+        }
+
+        function validateForm(data) {
+            if (!data.rol) {
+                showToast("Por favor seleccione si es Esposo o Esposa.", "error");
+                return false;
+            }
+            if (!data.nombre.trim()) {
+                showToast("Por favor ingrese su Nombre Completo.", "error");
+                document.getElementById('nombre').focus();
+                return false;
+            }
+            if (!data.conyuge.trim()) {
+                showToast("Por favor ingrese el Nombre de su Cónyuge.", "error");
+                document.getElementById('conyuge').focus();
+                return false;
+            }
+            return true;
+        }
+
+        function copyForWhatsApp() {
+            const data = getFormData();
+            if (!validateForm(data)) return;
+
+            let text = `*GRUPO DE CONEXIÓN*\n`;
+            text += `*Iglesia El Lugar de Su Presencia*\n`;
+            text += `📖 *SECCIÓN TRES: Capítulos 3 y 4 (15 - 22 de Agosto)*\n`;
+            text += `──────────────────────\n`;
+            text += `👤 *Participante:* ${data.nombre} (${data.rol})\n`;
+            text += `💍 *Cónyuge:* ${data.conyuge}\n`;
+            text += `📅 *Fecha:* ${data.fecha}\n`;
+            text += `──────────────────────\n\n`;
+            
+            text += `*CAPÍTULO 3:* \n\n`;
+            text += `*1. "No eres el hombre que pensé":* ${data.c3_q1 || 'S/R'}\n\n`;
+            text += `*2. "Tú eres la culpable":* ${data.c3_q2 || 'S/R'}\n\n`;
+            text += `*3. Respeto incondicional oxímoron:*\n   • Opciones: ${data.c3_q3_items || 'Ninguna'}\n   • Idea propia: ${data.c3_q3_d || 'S/R'}\n\n`;
+            text += `*4. Mostrar vs sentir Respeto:* ${data.c3_q4 || 'S/R'}\n\n`;
+            text += `*5. Cosas positivas con leve ajuste:* ${data.c3_q5 || 'S/R'}\n\n`;
+            text += `*6. Amar al Esposo Respetándolo:* ${data.c3_q6 || 'S/R'}\n\n`;
+            text += `*7. Respuesta del Esposo:* ${data.c3_q7 || 'S/R'}\n\n`;
+            text += `*8. Encuesta 74% de Respeto:*\n   • Esposo: ${data.c3_q8_esposo || 'S/R'}\n   • Esposa: ${data.c3_q8_esposa || 'S/R'}\n\n`;
+            text += `*9. Analogía Comida/Agua:* ${data.c3_q9 || 'S/R'}\n\n`;
+            text += `*10. Honrar y Respetar como objetivo:* ${data.c3_q10 || 'S/R'}\n\n`;
+
+            text += `──────────────────────\n`;
+            text += `*CAPÍTULO 4:* \n\n`;
+            text += `*1. ¿Susceptibles o arrogantes?:* ${data.c4_q1 || 'S/R'}\n\n`;
+            text += `*2. Código de Honor:*\n   • ¿Agresiva?: ${data.c4_q2_agresiva || 'S/R'}\n   • ¿Crítica u obstruccionista?: ${data.c4_q2_critica || 'S/R'}\n   • Roles en matrimonio: ${data.c4_q2_roles || 'S/R'}\n   • ¿Por qué evaden?: ${data.c4_q2_evaden || 'S/R'}\n\n`;
+            text += `*3. Resolución conflictos mujeres:*\n   • Opciones: ${data.c4_q3_items || 'Ninguna'}\n   • Pensamientos: ${data.c4_q3_e || 'S/R'}\n\n`;
+            text += `*4. Principios Amor y Respeto:* ${data.c4_q4}\n\n`;
+            text += `*5. Regañonas / Respeto incondicional:*\n   • Esposa: ${data.c4_q5_esposa || 'S/R'}\n   • Interpretación Esposo: ${data.c4_q5_esposo || 'S/R'}\n\n`;
+            text += `*6. Pregunta para evitar regañar:* ${data.c4_q6 || 'S/R'}\n\n`;
+            text += `*7. Amo o Respeto identificados:* ${data.c4_q7_items || 'Ninguno'}\n\n`;
+            text += `*8. Aventura del Esposo:*\n   • Razones: ${data.c4_q8_razones || 'S/R'}\n   • Verlo apuesto/ingenioso: ${data.c4_q8_malo || 'S/R'}\n\n`;
+            text += `*9. Vulnerabilidad Esposa / Prevención:* ${data.c4_q9 || 'S/R'}\n\n`;
+            text += `*CONCLUSIÓN (Regla de Oro):* ${data.c4_conclusion || 'S/R'}\n`;
+
+            const dummy = document.createElement("textarea");
+            document.body.appendChild(dummy);
+            dummy.value = text;
+            dummy.select();
+            document.execCommand("copy");
+            document.body.removeChild(dummy);
+
+            showToast("¡Respuestas copiadas! Pégalas en el chat de tu Grupo de 4 en WhatsApp.", "success");
+        }
+
+        function exportToCSV() {
+            const data = getFormData();
+            if (!validateForm(data)) return;
+
+            const headers = Object.keys(data);
+            const values = Object.values(data).map(val => `"${String(val).replace(/"/g, '""')}"`);
+
+            const csvContent = "data:text/csv;charset=utf-8,\uFEFF" 
+                + headers.join(",") + "\n" 
+                + values.join(",");
+
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", `Seccion3_Amor_y_Respeto_${data.nombre.replace(/\s+/g, '_')}.csv`);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            showToast("Archivo CSV descargado.", "success");
+        }
+
+        function resetForm() {
+            document.getElementById('evaluationForm').reset();
+            showToast("Formulario limpiado.", "info");
+        }
+
+        function showToast(msg, type = "success") {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMsg');
+            const toastIcon = document.getElementById('toastIcon');
+
+            toastMsg.innerText = msg;
+            if (type === "success") {
+                toastIcon.className = "fa-solid fa-circle-check";
+                toastIcon.style.color = "#34D399";
+            } else if (type === "error") {
+                toastIcon.className = "fa-solid fa-triangle-exclamation";
+                toastIcon.style.color = "#F87171";
+            } else {
+                toastIcon.className = "fa-solid fa-circle-info";
+                toastIcon.style.color = "#60A5FA";
+            }
+
+            toast.style.display = "flex";
+            setTimeout(() => { toast.style.display = "none"; }, 4000);
+        }
+    </script>
+</body>
+</html>
